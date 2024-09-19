@@ -3,7 +3,7 @@ const input2 = document.getElementById("numero2");
 const respuesta = document.getElementById("respuesta");
 
 class Operaciones {
-  static resultado = 0;
+    static resultado = 0;
     constructor(num1, num2) {
         this.num1 = num1;
         this.num2 = num2;
@@ -30,12 +30,12 @@ class Operaciones {
     }
 }
 
-function calcular(){
-  const num1 = parseFloat(input1.value);
-  const num2 = parseFloat(input2.value);
-  const operacion = new Operaciones(num1, num2);
+function calcular() {
+    const num1 = parseFloat(input1.value);
+    const num2 = parseFloat(input2.value);
+    const operacion = new Operaciones(num1, num2);
 
-  const resultadoSuma = operacion.sumar();
+    const resultadoSuma = operacion.sumar();
 
-  respuesta.value = resultadoSuma;
+    respuesta.value = resultadoSuma;
 }
