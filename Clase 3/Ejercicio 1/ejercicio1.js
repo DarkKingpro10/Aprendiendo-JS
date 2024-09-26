@@ -28,38 +28,4 @@ const res = message.toLocaleLowerCase().split(" ").reduce((acc, palabra) => {
   return acc;
 }, []).join("");
 
-//Consola -> consola
-
-//elefante jirafa -> [elefante, jirafa]
-
-//e -> [l,fante jirafa]
-
-//[gato,2] -> gato2
-
-
-//SEGUNDO MÉTODO Y MEJOR FORMA
-/**
- * 
- * const res = message.toLocaleLowerCase().split(" ");
-
-// const animalCounts = [];
-var mensaje = "";
-res.forEach(animal => {
-  const count = res.filter(a => a === animal).length;
-
-  //paloma -> [paloma...............]; cuentalos -> palomas se repite 15veces
-
-  // animalCounts.push({ animal, count });
-  mensaje += `${animal}${count} `;
-  //[{animal: animal, count: 5}]
-});
-
-for(const animal of res){
-  //next, break
-  //try catch
-  const count = res.filter(a => a === animal).length;
-  mensaje += `${animal}${count} `;
-}
-
- * 
- */
+console.log(res);
