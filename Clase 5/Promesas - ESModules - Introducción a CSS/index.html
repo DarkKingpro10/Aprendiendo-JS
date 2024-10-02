@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promesas y uso de ESModule</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!--En este HTML se mostrará un ejemplo de cargado dinámico mediante Client-Side Rendering (Renderización del lado del cliente)
+
+Inicialmente se mostrará solo los skeleton que diseñe con CSS (Se pueden hacer de otras formas pero eso se me ocurrió en el momento) - Los skeleton son usados para simular que se esta cargando contenido, la verdad pueden ser omitidos con el típico icono de cargado pero aquí los decidí usar como ejemplo
+
+
+Luego mediante JS cargará las cards reales dinamicamente de una API que saque de google
+
+Como nota después hare una clase de Full FlexBox - Full Grid
+la verdad no estoy siguiendo un buen orden pero debido a las actividades que ya se acercan decidí meter varios contenidos en una para luego pausadamente explicarlos en donde solo hable de FlexBox y Grid
+
+-->
+
+<body>
+  <main>
+    <div class="text-center">
+      <h1>Usuarios</h1>
+      <hr>
+      <button id="btn-cargar">Cargar Usuarios</button>
+    </div>
+    <section class="user-container" id="user-container">
+      <!--
+      /*BEM es una nomenclatura de clases que no es estrictamente necesaria usar, algunos optan por no usarla ya que es muy verbosa esta se diseña de esta forma
+      */
+      //El elemento bloque digamos solo es un nombre cualquiera
+      <section class="card">
+        
+        //Los elementos del elemento bloque llevaría esta convención: nombreDelBloque__nombreDelElemento 
+        <article class="card__article">
+
+          //Si un elemento ya el bloque o uno del bloque posee una característica particular entonces se usa la siguiente convención: nombreDelElemento--modificador
+
+          <button class="card__article__button">Soy el botón normal</button>
+          <button class="card__article__button--special">
+            Soy un botón especial
+          </button>
+        
+        </article>
+      </section>
+      -->
+      <article class="card card--skeleton">
+        <div class="user__img">
+        </div>
+        <div class="user__data">
+          <p class="user__data__name"></p>
+          <p class="user-data-gender"></p><!--Si no decidimos usar BEM resulta más cómodo-->
+          <p class="user__data__email"></p>
+        </div>
+      </article>
+      <article class="card card--skeleton">
+        <div class="user__img">
+        </div>
+        <div class="user__data">
+          <p class="user__data__name"></p>
+          <p class="user-data-gender"></p><!--Si no decidimos usar BEM resulta más cómodo-->
+          <p class="user__data__email"></p>
+        </div>
+      </article>
+
+      <article class="card card--skeleton">
+        <div class="user__img">
+        </div>
+        <div class="user__data">
+          <p class="user__data__name"></p>
+          <p class="user-data-gender"></p><!--Si no decidimos usar BEM, resulta más cómodo-->
+          <p class="user__data__email"></p>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <!--Vinculamos el JS con el html hasta el final porque necesitamos que se halla cargado todo el DOM (html) -->
+  <!--Si deseamos poder usar import y export debemos añadir la propiedad module -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script><!--Para usar alertas bonitas-->
+  <script type="module" src="index.js"></script>
+
+  <!--Se podría no usar import y export al colocar ambos scripts-->
+  <!--
+
+  El orden importa ya que deben primero cargarse las funciones a usarse de esa forma en el index tenemos acceso sin usar import a todas las funciones de promesas.js
+
+  <script src="promesas.js"></script>
+  <script src="index.js"></script>
+
+  -->
+</body>
+</html>

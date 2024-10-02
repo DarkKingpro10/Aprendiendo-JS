@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*Utility classes con clases de CSS que afectan a una propiedad o máximo dos propiedades de CSS con el objetivo que se puedan aplicar estilos rápidos de CSS */
+
+/*Se pueden hacer utility clases de hasta 5 propiedades modificadas pero se les considera clase de componente y toca la linea delgada entre una clase normal de CSS y una utility class*/
+.text-center {
+  /*Esta es una utility class*/
+  text-align: center;
+}
+
+.user-container {
+  /*Para los contenedores no es regla pero se recomienda usar grid para diseñar una plantilla luego veremos GRID esta clase aun no cubre eso pero por ejemplos didácticos use*/
+  padding-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+  justify-items: center;
+}
+
+/*Usamos nesting cuando queremos afectar a un elemento
+  que específicamente este dentro de otro elemento.
+
+  El nesting puede verse confuso pero ahorra código y fue muy
+  deseado en la comunidad
+*/
+
+.card {
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #cbcbcb;
+  .user__img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: scale ease .3s;
+  }
+
+  .user__img:hover{
+    cursor: pointer;
+    scale: .9;
+  }
+
+  .user__data {
+    /*FlexBox se recomienda usar para estilizar ya el contenido de los elementos internamente, pero esta es recomendación no un estándar, como ejemplo en este ejercicio use solo grid*/
+    display: grid;
+    padding-top: 10px;
+    gap: 10px;
+    grid-template-areas:
+      "name gender"
+      "email email";
+
+    .user__data__name {
+      grid-area: name;
+    }
+
+    .user-data-gender {
+      grid-area: gender;
+    }
+
+    .user__data__email {
+      grid-area: email;
+      text-align: center;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+/*Estilizo los componentes unicamente para cuando la card también posee la clase skeleton*/
+.card.card--skeleton {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  .user__img {
+    background: linear-gradient(100deg, #e0e0e0 30%, #f0f0f0 50%, #e0e0e0 70%);
+    background-size: 200% 100%;
+    animation: loading 2s infinite;
+  }
+
+  .user__data {
+    p {
+      padding: 10px;
+      border-radius: 10px;
+      background: linear-gradient(100deg, #e0e0e0 30%, #f0f0f0 50%, #e0e0e0 70%);
+      background-size: 200% 100%;
+      animation: loading 2s infinite;
+    }
+  }
+}
+
+/*Otra forma de hacer lo anterior sería no hacerlo nesting*/
+
+/*
+.card.card--skeleton{
+  background-color: #cbcbcb;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card.card--skeleton .user__img{
+  width: inherit;
+  background: linear-gradient(100deg, #e0e0e0 30%, #f0f0f0 50%, #e0e0e0 70%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+*/
+
+/* Creamos una animación llamada loading*/
+@keyframes loading {
+
+  /*En el inicio el fondo (Osea el degradado va estar en su 200% ejex y en el Y ni se mueve)*/
+  0% {
+    background-position: 200% 0;
+  }
+
+  /*Al finalizar la animación hacemos que regrese a la posición original osea le quitamos el 200% que tenía*/
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/*Otra forma de hacer esta animación es*/
+/* @keyframes loading {
+  from { Al ser 0% podemos usar la palabra clave from
+    background-position: 200% 0;
+  }
+  to { Al ser 100% podemos usar la palabra clave to
+    background-position: -200% 0;
+  }
+} */
