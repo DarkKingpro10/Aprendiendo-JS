@@ -135,6 +135,7 @@ main{
 
 .flex-container .element:nth-child(5){
   order: 5;
+  align-self: center;/*Se alinea el solo al centro*/
 }
 
 /* @media (width <= 720px){
