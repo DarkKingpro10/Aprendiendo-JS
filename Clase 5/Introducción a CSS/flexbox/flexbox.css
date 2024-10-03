@@ -99,3 +99,53 @@ main{
 .flex-shrink {
   flex-shrink: 1;
 }
+
+.flex-container{
+  display: flex;/*Habilita flex*/
+  flex-wrap: wrap;/*Habilita que los items cambien de linea*/
+  flex-direction: row;/*Da la dirección del flex*/
+  /*Shortcout: flex-direction flex-wrap*/
+  /* flex-flow: row-reverse wrap-reverse; */
+  align-items: center;/*Alinea los elementos en el cross axis*/
+  align-content: center;/*Lo mismo de la anterior pero cuando tiene wrap*/
+  justify-content: space-between;/*Alinea los elementos en el main axis*/
+  
+  row-gap: 10px;/*Espacio entre elementos en la fila*/
+  column-gap: 3px; /*Lo mismo pero para columnas*/
+}
+
+.flex-container .element:nth-child(1){
+  order: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.flex-container .element:nth-child(2){
+  order: 2;
+  flex-grow: 3;
+}
+
+.flex-container .element:nth-child(3){
+  order: 3;
+}
+
+.flex-container .element:nth-child(4){
+  order: 4;
+}
+
+.flex-container .element:nth-child(5){
+  order: 5;
+}
+
+/* @media (width <= 720px){
+  .flex-container .element:nth-child(5){
+    order: 1;
+  }
+} */
+
+
+.prueba{
+  color: black;
+  height: 100px;
+  background: white;
+}

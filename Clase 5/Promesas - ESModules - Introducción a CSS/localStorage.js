@@ -24,6 +24,7 @@ const objectRecover = JSON.parse(jsonString);
 //MODIFICAR
 const myObjectModify = { ...objectRecover, occupation: "Backend"};
 
+
 // Convertimos el objeto a string
 const jsonStringModify = JSON.stringify(myObjectModify);
 localStorage.setItem('myObject', jsonStringModify);

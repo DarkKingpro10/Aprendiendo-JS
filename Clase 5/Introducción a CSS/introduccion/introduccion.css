@@ -1,8 +1,158 @@
 /*CSS es una hoja de estilos en cascada lo cual significa que pueden darse diversos estilos a todos los elementos de html pero estos iran en orden de arriba a abajo, por ende si un estilo se cambia hasta abajo entonces ese será el que se
 mostrará en html*/
 
-/*En CSS hay */
 
-body{
+/*ESTO LO TIENEN QUE HACER PARA TODOS LOS CSSS QUE VALLAN A HACER*/
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*Variables*/
+:root {
+  --nombre-que: rgb(124, 155, 240);
+  --margen-i: 5px;
+}
+
+/*FORMAS DE SELECCIONAR ELEMENTOS*/
+div {
+  /*Por el nombre del elemento*/
   margin: 5px;
+  margin: 0px;
+}
+
+.clase {
+  /*Por clase*/
+  padding: 55px 100px 50px 15px;
+  background-color: black;
+  width: fit-content;
+  color: white;
+}
+
+#div {
+  background-color: aqua;
+  color: black;
+}
+
+/*SELECTORES CSS*/
+/*Ancestros*/
+.padre div {
+  padding: 10px;
+  width: 100px;
+  aspect-ratio: 1/1;
+  background-color: black;
+  margin-top: var(--marge-i);
+  border: 2px solid white;
+}
+/*OTRA FORMA CON NESTING*/
+.padre{
+  div{
+    padding: 10px;
+  width: 100px;
+  aspect-ratio: 1/1;
+  background-color: black;
+  margin-top: var(--marge-i);
+  border: 2px solid white;
+  }
+}
+
+/*Child Selector*/
+
+.padre>div {
+  background-color: blue;
+}
+
+/*Adjacent Sibling*/
+
+.padre~.padre-tambien {
+  width: 100px;
+  aspect-ratio: 1/1;
+  background-color: silver;
+  margin-top: 5px;
+}
+
+.padre+.padre-tambien {
+  width: 100px;
+  aspect-ratio: 1/1;
+  margin-top: var(--marge-i);
+  background-color: var(--nombre-que);
+  position: relative;
+}
+
+/*PseudoClases*/
+.padre+.padre-tambien::before {
+  position: absolute;
+  content: "";
+  width: 50px;
+  padding: 25px;
+  height: 25px;
+  top: 25px;
+  left: 25px;
+  background-color: yellow;
+  z-index: 25;
+}
+
+/*
+Unidades relativas: 
+1rem -> 1*tamaño de fuente del root -> por defecto es 16px
+1em -> 1*tamaño de fuente del contenedor
+
+*/
+.u-rela {
+  font-size: 20px;
+  p {
+    margin-top: 10px;
+  }
+}
+
+.rem{
+  font-size: 1rem;
+}
+
+.em{
+  font-size: 1em;
+}
+
+
+.menu{
+  padding: 2px;
+  width: 2rem;
+  background: black;
+  position: relative;
+}
+
+.menu::before{
+  content: "";
+  position: absolute;
+  padding: 2px;
+  width: 2rem;
+  background: black;
+  bottom: 7px
+}
+
+.menu::after{
+  content: "";
+  position: absolute;
+  padding: 2px;
+  width: 2rem;
+  background: black;
+  top: 7px;
+}
+
+/*MEDIA QUERYS*/
+@media (width >= 1024px){
+  #div {
+    background-color: red;
+    color: black;
+  }
+}
+
+@media (width >= 768px) and (width<=1023px){
+  #div {
+    background-color: blue;
+    color: black;
+  }
 }

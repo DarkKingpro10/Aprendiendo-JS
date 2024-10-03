@@ -59,7 +59,8 @@ function thenHell() {
     .then(() => {
       console.log("Nueva promesa")
       return promiseWithError;//Ahora devolvemos el error
-    })
+    }
+  )
     .catch(error => console.log(error.message))
 }
 
@@ -94,12 +95,12 @@ async function tryCatchHell() {
 //Obtenemos contenido de la API
 const USERS_URL = "https://randomuser.me/api?results=10&seed=prueba";//Por motivos prácticos ya esta parametrizada pero puede parametrizarse usando template strings
 
-export async function getData(params) {
+export async function getData(page = 1) {
   //Usamos el método fetch para realizar una petición HTTP
 
   //En este caso la petición es de método GET por ende el FETCH no requiere más parámetros
   try {
-    const res = await fetch(USERS_URL);
+    const res = await fetch(`https://randomuser.me/api?results=10&seed=prueba?page=${page}`);
     
     //Verificamos que la petición se halla realizado bien
     if(!res.ok) throw new Error("Error al realizar la petición de los usuarios");
