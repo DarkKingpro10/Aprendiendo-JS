@@ -23,3 +23,32 @@ export function funcionNoDefault() {
 
     import prueba, {funcionNoDefault as nuevoNombre} from "./esmodules.js";
  */
+
+/**IMPORTS DINÁMICOS PARA FUNCIONES*/
+
+async function LogIn() {
+  //Supongamos que dentro de esta función se evalua si el log in fue correcto
+  let logIn = true;
+
+  if (logIn) {
+    import("./moduloDinamico.js").then(({default: funcionDinamica, funcionDinamica2}) =>{
+      funcionDinamica();
+      funcionDinamica2();
+    });
+
+    //Tambien se puede hacer de esta manera
+    import("./moduloDinamico.js").then((modulo) =>{
+      modulo.default();
+      modulo.funcionNoDefault();
+    });	
+
+    //Tambien se puede hacer de esta manera
+    const {default: nombremosDeOtraForma, funcionDinamica2} = await import("./moduloDinamico.js");
+    
+    nombremosDeOtraForma();
+    funcionDinamica2();
+  }
+  else {
+    //Se hace otra lógica como importar otros modulos
+  }
+}

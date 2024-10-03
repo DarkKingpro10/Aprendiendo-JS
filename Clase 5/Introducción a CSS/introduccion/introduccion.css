@@ -1,0 +1,8 @@
+/*CSS es una hoja de estilos en cascada lo cual significa que pueden darse diversos estilos a todos los elementos de html pero estos iran en orden de arriba a abajo, por ende si un estilo se cambia hasta abajo entonces ese será el que se
+mostrará en html*/
+
+/*En CSS hay */
+
+body{
+  margin: 5px;
+}
